@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+
+body {
+    margin: 0;
+    background-color:  #f7f7f7;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+//box-sizing 일괄 설정하기  
+//If you set box-sizing: border-box; on an element padding and border are included in the width and height
+* {
+    box-sizing: inherit;
+}
+
+ul {
+    list-style-type : none;
+    margin: 0;
+    padding: 0;
+}
+
+//링크 스타일 밑줄 및 색상 무효화
+a {
+    text-decoration: inherit;
+    color: inherit;
+}

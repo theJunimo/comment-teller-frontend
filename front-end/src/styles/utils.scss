@@ -1,0 +1,4 @@
+@import 'lib/all';
+
+/*반응형 디자인 시 참조할 구간*/
+$breakpoints: (sm: 576px, med: 768px, lg: 1024px, xl: 1400px);
