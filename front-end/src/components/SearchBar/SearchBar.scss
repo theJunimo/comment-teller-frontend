@@ -1,0 +1,47 @@
+.SearchBar {
+    width: 100%;
+    text-align: center;
+
+    .content {
+        display: flex;
+        border-radius: 5px;
+        overflow: hidden;
+        -webkit-box-shadow: 0px 0px 30px -22px #000000; 
+        -moz-box-shadow: 0px 0px 30px -22px #000000; 
+        box-shadow: 0px 0px 30px -22px #000000;
+
+        .input-div {
+            flex: 1;
+            background-color: white;
+            width: 35rem;
+            padding: 1rem 2rem;
+
+            input {
+                width: 100%;
+                font-size: 1.1rem;
+                border: none;
+                outline: none;
+            }
+        }
+
+        .button-div {
+            background-color: #1089ff;
+            padding: 1rem;
+            cursor: pointer;
+            .button {
+                color: white;
+                font-weight: bold;
+            }
+        }
+    }
+    .alert {
+        visibility: hidden;
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #c70d3a;
+
+        &.show {
+            visibility: visible;
+        }
+    }
+}
