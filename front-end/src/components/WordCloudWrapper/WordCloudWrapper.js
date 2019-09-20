@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import WordCloud from 'react-wordcloud';
 import Loading from './Loading';
 import NoComment from './NoComment';
+import Error from './Error';
 import { useSelector } from 'react-redux';
 
 const cx = classNames.bind(styles);
@@ -26,9 +27,11 @@ const WC = ({ data }) => {
         transitionDuration: 1000,
     }
     return (
-        <WordCloud 
-        options = { options }
-        words = { data }/>
+        <div className = {cx('inner-div')}>
+            <WordCloud 
+            options = { options }
+            words = { data }/>
+        </div>
     )
 }
 
@@ -58,12 +61,12 @@ const WordCloudWrapper = () => {
         { text: '엽엽', value: 226 }];
 
     return(
-        <div className = { cx('WordCloudWrapper') }>
+        <div className = { cx('WordCloudWrapper ' + (loading || success || error? 'show' : '')) }>
             <div className = {cx('inner-div')}>
                 {loading? <Loading/> : null}
                 {success && comments? <WC data = { comments } /> : 
-                    success && !comments? <NoComment /> : null }
-                {error? <p>예기치 못한 에러가 발생하였습니다.</p> : null}
+                    success && !comments? <NoComment /> : 
+                    error? <Error /> : null}
             </div>
         </div>
     )
