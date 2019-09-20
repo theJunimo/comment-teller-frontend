@@ -9,36 +9,35 @@ router.get('/comments/:id', function (req, res, next) {
   console.log('videoId: ' + videoId);
  
   getData(videoId).then ((comments) => {
-    console.log(comments);
+    refineData(comments);
     //댓글 정제
     return res.status(200).send();
     }
   );
 });
 
+const refineData = (comments) => {
+  const n = comments.length;
+  var pattern = /[^(가-힣)]|[()]/gi; // 특수문자 제거
+  for(let i = 0; i < n; i++) {
+    comments[i] = comments[i].replace(pattern,' ');
+  }
+  console.log(comments);
+}
+
 const getData = async(videoId) => {
-  console.log('메소드실행');
   let nextPageToken = '';
   let comments = [];
-  let page = 1;
-  while(true){
-    console.log(page++);
 
+  while(true){
     const URL = `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=100&textFormat=plainText&videoId=${videoId}&key=${process.env.GOOGLE_API_KEY}`
     + (nextPageToken? `&pageToken=${nextPageToken}` : '');
 
     const response = await axios.get(URL);
     const { totalResults } = response.data.pageInfo;
-    console.log(response.data.nextPageToken);
-    console.log(response.data.items.length);
     const items = response.data.items;
 
-    //console.log('데이타' + JSON.stringify(response.data));
-
     for(let i = 0; i < totalResults; i++) {
-      if(page > 27) {
-        console.log(items[i].snippet.topLevelComment.snippet.textDisplay);
-      }
       comments.push(items[i].snippet.topLevelComment.snippet.textDisplay);
     }
 
@@ -48,7 +47,6 @@ const getData = async(videoId) => {
       nextPageToken = response.data.nextPageToken;
     };
   }
-
   return comments;
 }
 
