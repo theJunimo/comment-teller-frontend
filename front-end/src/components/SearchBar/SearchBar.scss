@@ -1,3 +1,5 @@
+@import 'styles/utils';
+
 .SearchBar {
     width: 100%;
     text-align: center;
@@ -13,24 +15,38 @@
         .input-div {
             flex: 1;
             background-color: white;
-            width: 35rem;
             padding: 1rem 2rem;
+
+            @include media("<sm") {
+                padding: 1rem;
+            }
 
             input {
                 width: 100%;
                 font-size: 1.1rem;
                 border: none;
                 outline: none;
+
+                @include media("<sm") {
+                    font-size: 0.9rem;
+                }
             }
         }
 
         .button-div {
+            display: flex;
             background-color: #1089ff;
             padding: 1rem;
             cursor: pointer;
+
             .button {
                 color: white;
+                margin: auto;
                 font-weight: bold;
+                
+                @include media("<sm") {
+                    font-size: 0.8rem;
+                }
             }
         }
     }

@@ -1,11 +1,40 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import styles from './WordCloudWrapper.scss';
 import classNames from 'classnames/bind';
 import WordCloud from 'react-wordcloud';
+import Loading from './Loading';
+import NoComment from './NoComment';
+import { useSelector } from 'react-redux';
 
 const cx = classNames.bind(styles);
 
+const WC = ({ data }) => {
+
+    const options = {
+        colors: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'],
+        enableTooltip: true,
+        deterministic: false,
+        fontFamily: 'Noto Sans KR, sans-serif',
+        fontSizes: [10, 80],
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        padding: 5,
+        rotations: 3,
+        rotationAngles: [0, 0],
+        scale: 'sqrt',
+        spiral: 'archimedean',
+        transitionDuration: 1000,
+    }
+    return (
+        <WordCloud 
+        options = { options }
+        words = { data }/>
+    )
+}
+
 const WordCloudWrapper = () => {
+    const { loading, success, error, comments } = useSelector(state => state);
+
     const data = [
         { text: '아에이오우', value: 1000 }, 
         { text: '아에아에', value: 500 },  
@@ -27,29 +56,14 @@ const WordCloudWrapper = () => {
         { text: '엽엽', value: 226 },
         { text: '엽엽', value: 226 },
         { text: '엽엽', value: 226 }];
-    const font = 'Noto Sans KR, sans-serif';
-    const fontSizeMapper = word => Math.log2(word.value) * 5;
-    const options = {
-        colors: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'],
-        enableTooltip: true,
-        deterministic: false,
-        fontFamily: 'Noto Sans KR, sans-serif',
-        fontSizes: [10, 80],
-        fontStyle: 'normal',
-        fontWeight: 'bold',
-        padding: 5,
-        rotations: 3,
-        rotationAngles: [0, 0],
-        scale: 'sqrt',
-        spiral: 'archimedean',
-        transitionDuration: 1000,
-    }
+
     return(
         <div className = { cx('WordCloudWrapper') }>
             <div className = {cx('inner-div')}>
-            <WordCloud 
-                options = { options }
-                words = { data }/>
+                {loading? <Loading/> : null}
+                {success && comments? <WC data = { comments } /> : 
+                    success && !comments? <NoComment /> : null }
+                {error? <p>예기치 못한 에러가 발생하였습니다.</p> : null}
             </div>
         </div>
     )

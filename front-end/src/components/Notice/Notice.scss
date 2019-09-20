@@ -1,11 +1,17 @@
+@import 'styles/utils';
 
 .Notice {
     display: flex;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     padding: 1rem;
     background-color: white;
     font-size: 0.9rem;
     border-left: 8px solid #1089ff;
+
+    @include media("<sm") {
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+    }
 
     ul {
         list-style-type: disc;
