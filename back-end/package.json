@@ -2,6 +2,14 @@
   "name": "back-end",
   "version": "0.0.0",
   "private": true,
+  "author": "HyeInJu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theJunimo/comments-teller"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "scripts": {
     "start": "NODE_ENV=production node ./bin/www"
   },
