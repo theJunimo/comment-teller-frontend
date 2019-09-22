@@ -14,7 +14,12 @@
     }
 
     ul {
+        width: 100%;
         list-style-type: disc;
         margin-left: 1rem;
+
+        li {
+            white-space: normal;
+        }
     }
 }

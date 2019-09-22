@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { getComments } from 'stores/base';
 import styles from './SearchBar.scss';
@@ -11,11 +11,12 @@ const SearchBar = () => {
     const inputEl = useRef(null);
     const dispatch = useDispatch();
 
-    const handleSearch = () => {
+    const handleSearch = useCallback(() => {
         if(inputEl.current.value){
             const URL = 'https://www.youtube.com/watch?v=';
             const videoURL = inputEl.current.value;
-            if(videoURL.slice(0, 32) === URL){
+            if(videoURL.length > 32 && videoURL.slice(0, 32) === URL){
+                setAlert('unseen');
                 const videoId = videoURL.slice(32, videoURL.length);
                 dispatch(getComments(videoId));
             } else {
@@ -25,7 +26,7 @@ const SearchBar = () => {
         } else {
             setAlert('주소를 입력해주세요!');
         }
-    }
+    },[dispatch]);
 
     useEffect(() => {
         const handleUserKeyPress = (e) => {
@@ -39,9 +40,10 @@ const SearchBar = () => {
         window.addEventListener('keydown', handleUserKeyPress);
 
         return () => {
+            console.log('서치바이벤트삭제');
             window.removeEventListener('keydown', handleUserKeyPress);
         }
-    },[])
+    },[handleSearch])
 
     return (
         <div className = { cx('SearchBar') }>
@@ -51,8 +53,8 @@ const SearchBar = () => {
                             type = 'text' 
                             placeholder = '예시) https://www.youtube.com/watch?v=k4qLiyh78U8'/>
                 </div>
-                <div className = { cx('button-div')}>
-                    <div className = { cx('button')} onClick = { handleSearch }>
+                <div className = { cx('button-div')} onClick = { handleSearch }>
+                    <div className = { cx('button')}>
                         SEARCH
                     </div>
                 </div>

@@ -21,27 +21,23 @@ export const getComments = (videoId) => ({
 const base = (state = initialState, action) => {
     switch(action.type) {
         case INITIALIZE :
-            return {
-                ...state
-            }
+            return initialState
         case GET_COMMENTS_LOADING :
             return {
-                ...state,
+                ...initialState,
                 loading: true
             }
         case GET_COMMENTS_SUCCESS :
-            console.log(action);
+            console.log(action.payload.data.comments);
             return {
-                ...state,
                 loading: false,
                 success: true,
-                comments: action.payload.data.comments
+                comments: action.payload.data.comments,
+                error: false,
             }
         case GET_COMMENTS_ERROR :
             return {
-                ...state,
-                success: false,
-                loading: false,
+                ...initialState,
                 error: true
             }
         default :

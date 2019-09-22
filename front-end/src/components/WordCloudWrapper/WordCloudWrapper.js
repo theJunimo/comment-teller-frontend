@@ -12,16 +12,16 @@ const cx = classNames.bind(styles);
 const WC = ({ data }) => {
 
     const options = {
-        colors: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'],
+        colors: ['#E75232', '#9676e2', '#3b4ab7', '#aad6f9', '#b2a8cb', '#3b4ab7'],
         enableTooltip: true,
         deterministic: false,
         fontFamily: 'Noto Sans KR, sans-serif',
-        fontSizes: [10, 80],
+        fontSizes: [16, 100],
         fontStyle: 'normal',
         fontWeight: 'bold',
-        padding: 5,
+        padding: 1,
         rotations: 3,
-        rotationAngles: [0, 0],
+        rotationAngles: [0, 90],
         scale: 'sqrt',
         spiral: 'archimedean',
         transitionDuration: 1000,
@@ -37,28 +37,6 @@ const WC = ({ data }) => {
 
 const WordCloudWrapper = () => {
     const { loading, success, error, comments } = useSelector(state => state);
-
-    const data = [
-        { text: '아에이오우', value: 1000 }, 
-        { text: '아에아에', value: 500 },  
-        { text: '철수', value: 1000 },
-        { text: 'Jin', value: 500 },
-        { text: 'lol', value: 700 },
-        { text: 'HAHA', value: 100 },
-        { text: 'Nice', value: 16 },
-        { text: 'Hi', value: 5000 },
-        { text: 'Zoo', value: 5 },
-        { text: 'whats up', value: 760 },
-        { text: 'Instagram', value: 130 },
-        { text: 'There you are!!', value: 226 },
-        { text: '엽엽', value: 226 },
-        { text: '엽엽', value: 226 },
-        { text: '엽엽', value: 226 },
-        { text: '엽엽', value: 226 },
-        { text: '엽엽', value: 226 },
-        { text: '엽엽', value: 226 },
-        { text: '엽엽', value: 226 },
-        { text: '엽엽', value: 226 }];
 
     return(
         <div className = { cx('WordCloudWrapper ' + (loading || success || error? 'show' : '')) }>
