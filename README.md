@@ -9,7 +9,7 @@
 
 
 ## 기술 스택
-***
+
 ### Client
 * JS
 * React
