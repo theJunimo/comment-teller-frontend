@@ -11,7 +11,6 @@
 ## 기술 스택
 
 ### Client
-* JS
 * React
 * React-redux
 * Redux-thunk
