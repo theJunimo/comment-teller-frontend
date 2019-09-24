@@ -21,7 +21,7 @@ router.get('/comments/:id', wrap(async(req, res, next) => {
   if(comments.length === 0) return res.status(200).send();
 
   const nounsArr = await ctrl.refineData(comments);
-  const wordFrequency = await ctrl.getMostFrequentNouns(nounsArr);
+  const wordFrequency = ctrl.getMostFrequentNouns(nounsArr);
 
   console.log('응답');
   return res.status(200).send({comments: wordFrequency});
