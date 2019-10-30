@@ -8,7 +8,7 @@
     "url": "https://github.com/theJunimo/comments-teller"
   },
   "scripts": {
-    "postinstall": "node_modules/mecab-ya/bin/install-mecab ko",
+    "postinstall": "node_modules/mecab-ya/bin/install-mecab && node_modules/mecab-ya/bin/install-mecab ko",
     "start": "NODE_ENV=production node ./bin/www"
   },
   "dependencies": {
