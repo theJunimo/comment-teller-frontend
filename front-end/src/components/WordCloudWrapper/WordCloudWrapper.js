@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux';
 const cx = classNames.bind(styles);
 
 const WC = ({ data }) => {
-
     const options = {
         colors: ['#E75232', '#9676e2', '#3b4ab7', '#aad6f9', '#b2a8cb', '#3b4ab7'],
         enableTooltip: true,
