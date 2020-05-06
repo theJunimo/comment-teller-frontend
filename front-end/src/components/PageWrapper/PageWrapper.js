@@ -1,13 +1,10 @@
 import React from 'react';
-import styles from './PageWrapper.scss';
-import classNames from 'classnames/bind';
+import './PageWrapper.scss';
 import PageTemplate from 'components/PageTemplate';
-
-const cx = classNames.bind(styles);
 
 const PageWrapper = () => {
     return (
-        <div className = { cx('PageWrapper') }>
+        <div className = 'PageWrapper'>
             <PageTemplate/>
         </div>
     )

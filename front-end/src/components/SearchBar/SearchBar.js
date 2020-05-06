@@ -46,15 +46,15 @@ const SearchBar = () => {
     },[handleSearch])
 
     return (
-        <div className = { cx('SearchBar') }>
-            <div className = { cx('content')}>
-                <div className = { cx('input-div') }>
+        <div className = 'SearchBar'>
+            <div className = 'content'>
+                <div className = 'input-div'>
                     <input ref = { inputEl } 
                             type = 'text' 
                             placeholder = '예시) https://www.youtube.com/watch?v=k4qLiyh78U8'/>
                 </div>
-                <div className = { cx('button-div')} onClick = { handleSearch }>
-                    <div className = { cx('button')}>
+                <div className = 'button-div' onClick = { handleSearch }>
+                    <div className = 'button'>
                         SEARCH
                     </div>
                 </div>

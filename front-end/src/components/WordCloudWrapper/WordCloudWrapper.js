@@ -40,7 +40,7 @@ const WordCloudWrapper = () => {
 
     return(
         <div className = { cx('WordCloudWrapper ' + (loading || success || error? 'show' : '')) }>
-            <div className = {cx('inner-div')}>
+            <div className = 'inner-div'>
                 {loading? <Loading/> : null}
                 {success && comments? <WC data = { comments } /> : 
                     success && !comments? <NoComment /> : 
