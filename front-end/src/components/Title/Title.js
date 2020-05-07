@@ -1,14 +1,12 @@
-import React from 'react';
-import './Title.scss';
+import React from "react";
+import "./Title.scss";
 
 const Title = () => {
-    return(
+    return (
         <header>
-            <h1>
-                Comment Teller
-            </h1>
+            <h1>Comment Teller</h1>
         </header>
-    )
-}
+    );
+};
 
 export default Title;

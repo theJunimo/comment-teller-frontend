@@ -1,10 +1,8 @@
-import React from 'react';
-import PageWrapper from 'components/PageWrapper';
+import React from "react";
+import PageWrapper from "components/PageWrapper";
 
 const App = () => {
-    return (
-        <PageWrapper/>
-    )
-}
+    return <PageWrapper />;
+};
 
 export default App;

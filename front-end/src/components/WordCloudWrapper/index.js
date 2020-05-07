@@ -1,1 +1,1 @@
-export { default } from './WordCloudWrapper';
+export { default } from "./WordCloudWrapper";

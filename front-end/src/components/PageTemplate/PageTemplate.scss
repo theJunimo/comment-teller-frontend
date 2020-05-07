@@ -1,4 +1,4 @@
-@import 'styles/utils';
+@import "styles/utils";
 
 .PageTemplate {
     margin: auto;
@@ -6,10 +6,10 @@
     min-width: 43rem;
 
     @include media("<=med") {
-        min-width : 31rem;
+        min-width: 31rem;
     }
 
     @include media("<=sm") {
-        min-width : 100%
+        min-width: 100%;
     }
 }

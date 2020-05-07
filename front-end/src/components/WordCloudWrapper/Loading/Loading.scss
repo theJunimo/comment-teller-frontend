@@ -1,7 +1,7 @@
 .Loading {
     display: flex;
     height: 100%;
-    .loading-wrapper{
+    .loading-wrapper {
         display: flex;
         flex-direction: column;
         margin: auto;
@@ -9,8 +9,8 @@
         p {
             font-size: 0.9rem;
         }
-        
-        .roller-wrapper{
+
+        .roller-wrapper {
             margin: auto;
 
             .lds-roller {
@@ -85,7 +85,7 @@
                             left: 19px;
                         }
                     }
-                    
+
                     &:nth-child(7) {
                         animation-delay: -0.252s;
 
@@ -107,13 +107,13 @@
             }
 
             @keyframes lds-roller {
-                    0% {
+                0% {
                     transform: rotate(0deg);
-                    }
-                    100% {
+                }
+                100% {
                     transform: rotate(360deg);
-                    }
                 }
             }
+        }
     }
 }
