@@ -16,7 +16,7 @@ const initialState = {
 
 export const getComments = (videoId) => ({
     type: GET_COMMENTS,
-    payload: axios.get(`/comments/${videoId}`),
+    payload: axios.get(`https://commentapi.during.kr/comments/${videoId}`),
 });
 
 const base = (state = initialState, action) => {
