@@ -39,9 +39,9 @@ const WordCloudWrapper = () => {
         <div className={cx("WordCloudWrapper " + (loading || success || error ? "show" : ""))}>
             <div className="inner-div">
                 {loading ? <Loading /> : null}
-                {success && comments ? (
+                {success && comments.length > 0 ? (
                     <WC data={comments} />
-                ) : success && !comments ? (
+                ) : success && comments.length === 0 ? (
                     <NoComment />
                 ) : error ? (
                     <Error />
