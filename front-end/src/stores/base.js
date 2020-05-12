@@ -1,4 +1,5 @@
 import axios from "axios";
+import { convertToObj } from "util/misc";
 
 const INITIALIZE = "INITIALIZE";
 const GET_COMMENTS = "GET_COMMENTS";
@@ -32,7 +33,7 @@ const base = (state = initialState, action) => {
             return {
                 loading: false,
                 success: true,
-                comments: action.payload.data.comments,
+                comments: convertToObj(action.payload.data.comments),
                 error: false,
             };
         case GET_COMMENTS_ERROR:
