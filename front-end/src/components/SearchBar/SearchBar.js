@@ -40,7 +40,6 @@ const SearchBar = () => {
         window.addEventListener("keydown", handleUserKeyPress);
 
         return () => {
-            console.log("서치바이벤트삭제");
             window.removeEventListener("keydown", handleUserKeyPress);
         };
     }, [handleSearch]);
