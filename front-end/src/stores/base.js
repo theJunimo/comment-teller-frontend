@@ -29,7 +29,6 @@ const base = (state = initialState, action) => {
                 loading: true,
             };
         case GET_COMMENTS_SUCCESS:
-            console.log(action.payload.data.comments);
             return {
                 loading: false,
                 success: true,
